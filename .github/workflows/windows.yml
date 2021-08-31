@@ -11,7 +11,7 @@ on:
       - '*.pro'
       - 'src/**'
       - '.github/workflows/windows.yml' 
-      
+
 jobs:
   build:
     name: Build
@@ -54,9 +54,12 @@ jobs:
       # msvc编译
       - name: msvc-build
         id: build
+        env:
+          archiveName: ${{ matrix.qt_ver }}-${{ matrix.qt_target }}-${{ matrix.qt_arch }}
         shell: cmd
         run: |
-          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{ matrix.msvc_arch }}
+          call  %comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsx86_amd64.bat" 
+          call configure -confirm-license -opensource -platform win32-msvc -debug-and-release -static -static-runtime -force-debug-info -opengl dynamic -prefix ${env:archiveName} -qt-sqlite -qt-pcre -qt-zlib -qt-libpng -qt-libjpeg -opengl desktop -qt-freetype -nomake tests -no-compile-examples -nomake examples -mp
           qmake
           nmake
           echo winSdkDir=%WindowsSdkDir% >> %GITHUB_ENV%
