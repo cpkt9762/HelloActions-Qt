@@ -12,9 +12,10 @@ on:
       - 'src/**'
       - '.github/workflows/windows.yml' 
 env: 
-    REPO_url: "https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
+    REPO_URL: "https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
+    REPO_BRANCH: “5.15.2”
     REPO_sha256: "3a530d1b243b5dec00bc54937455471aaa3e56849d2593edb8ded07228202240"
-
+ 
 
 jobs:
   build:
@@ -40,9 +41,12 @@ jobs:
       targetName: HelloActions-Qt.exe
     # 步骤
     steps: 
-      - name: Clone source code 
-        run: |
-          git clone --recursive https://github.com/qtproject/qt5.git -branch 5.15.2 
+        - name: Clone source code
+          run: |
+            df -hT $PWD
+            git clone $REPO_URL -b $REPO_BRANCH qt5
+            ln -sf /qt5 $GITHUB_WORKSPACE/qt5
+
 
       # msvc编译
       - name: msvc-build
