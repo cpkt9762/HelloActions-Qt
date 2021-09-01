@@ -44,7 +44,7 @@ jobs:
       - name: Clone source code
         run: |
           df -hT $PWD
-          git clone $REPO_URL -b $REPO_BRANCH qt5
+          git clone $REPO_URL -b $REPO_BRANCH
           ln -sf /qt5 $GITHUB_WORKSPACE/qt5
 
 
