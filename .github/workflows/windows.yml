@@ -41,11 +41,11 @@ jobs:
       targetName: HelloActions-Qt.exe
     # 步骤
     steps: 
-        - name: Clone source code
-          run: |
-            df -hT $PWD
-            git clone $REPO_URL -b $REPO_BRANCH qt5
-            ln -sf /qt5 $GITHUB_WORKSPACE/qt5
+      - name: Clone source code
+        run: |
+          df -hT $PWD
+          git clone $REPO_URL -b $REPO_BRANCH qt5
+          ln -sf /qt5 $GITHUB_WORKSPACE/qt5
 
 
       # msvc编译
