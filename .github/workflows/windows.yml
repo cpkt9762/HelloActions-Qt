@@ -39,30 +39,12 @@ jobs:
     env:
       targetName: HelloActions-Qt.exe
     # 步骤
-    steps:
-      # 安装Qt
-      - name: Install Qt
-        # 使用外部action。这个action专门用来安装Qt
-        uses: jurplel/install-qt-action@v2.13.0
-        with:
-          # Version of Qt to install
-          version: ${{ matrix.qt_ver }}
-          # Target platform for build
-          # target: ${{ matrix.qt_target }}
-          arch: ${{ matrix.qt_arch }}
-          cached: 'false'
-      # 拉取代码
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
-
+    steps: 
       - name: Clone source code
         working-directory: /workdir
         run: |
-          git clone --recursive github.com/qtproject/qt5.git -branch 5.15.2
+          git clone --recursive github.com/qtproject/qt5.git -branch 5.15.2 
           
-        
-
       # msvc编译
       - name: msvc-build
         id: build
