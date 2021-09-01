@@ -43,8 +43,8 @@ jobs:
       - name: Clone source code
         working-directory: /workdir
         run: |
-          git clone --recursive github.com/qtproject/qt5.git -branch 5.15.2 
-          
+          git clone --recursive https://github.com/qtproject/qt5.git -branch 5.15.2 
+
       # msvc编译
       - name: msvc-build
         id: build
