@@ -40,8 +40,7 @@ jobs:
       targetName: HelloActions-Qt.exe
     # 步骤
     steps: 
-      - name: Clone source code
-        working-directory: /workdir
+      - name: Clone source code 
         run: |
           git clone --recursive https://github.com/qtproject/qt5.git -branch 5.15.2 
 
@@ -52,7 +51,7 @@ jobs:
           archiveName: ${{ matrix.qt_ver }}-${{ matrix.qt_target }}-${{ matrix.qt_arch }}
         shell: cmd
         run: |
-          cd /workdir/qt5
+          cd qt5
           call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" ${{ matrix.msvc_arch }}
           configure -confirm-license -opensource -platform win32-msvc -debug-and-release -static -static-runtime -force-debug-info -opengl dynamic -prefix ${env:archiveName} -qt-sqlite -qt-pcre -qt-zlib -qt-libpng -qt-libjpeg -opengl desktop -qt-freetype -nomake tests -no-compile-examples -nomake examples -mp
           qmake
