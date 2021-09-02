@@ -44,6 +44,9 @@ jobs:
       - name: Clone source code
         run: |
           df -hT $PWD
+          $p = New-Object System.Net.WebClient
+          $p.DownloadFile("https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz" "d:\")
+
           wget https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz
           tar –xvJf qt-everywhere-src-5.15.2.tar.xz
           git clone --recursive https://github.com/qtproject/qt5.git --branch 5.15.2
