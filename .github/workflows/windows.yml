@@ -47,7 +47,7 @@ jobs:
         shell: powershell 
         run: |
           wget -Uri "https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz" -OutFile "qt-everywhere-src-5.15.2.tar.xz"
-          tar –xvJf "qt-everywhere-src-5.15.2.tar.xz" 
+          tar -xvJf "qt-everywhere-src-5.15.2.tar.xz" 
           ls 
 
 
