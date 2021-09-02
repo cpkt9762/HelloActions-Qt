@@ -46,8 +46,7 @@ jobs:
         shell: powershell 
         run: |  
           wget -Uri "https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz" -OutFile "qt-everywhere-src-5.15.2.tar.xz"
-          tar –xvJf qt-everywhere-src-5.15.2.tar.xz
-          git clone --recursive https://github.com/qtproject/qt5.git --branch 5.15.2
+          tar –xvJf "qt-everywhere-src-5.15.2.tar.xz" 
           ls 
 
 
