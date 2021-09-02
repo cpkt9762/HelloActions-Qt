@@ -12,7 +12,7 @@ on:
       - 'src/**'
       - '.github/workflows/windows.yml' 
 env: 
-    REPO_URL: "https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
+    REPO_URL:  "https://github.com/qtproject/qt5.git"# "https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
     REPO_BRANCH: “5.15.2”
     REPO_sha256: "3a530d1b243b5dec00bc54937455471aaa3e56849d2593edb8ded07228202240"
  
