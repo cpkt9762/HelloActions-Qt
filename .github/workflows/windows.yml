@@ -44,9 +44,8 @@ jobs:
       - name: Clone source code
         run: |
           df -hT $PWD
-          git clone $REPO_URL --b $REPO_BRANCH
-          ls
-          ln -sf /qt5 $GITHUB_WORKSPACE/qt5
+          git clone --recursive https://github.com/qtproject/qt5.git --branch 5.15.2
+          ls 
 
 
       # msvc编译
